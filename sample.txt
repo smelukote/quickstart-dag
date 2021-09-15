@@ -1,4 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/dataflow-bq-321500/my-image', '.']
-  timeout: 500s

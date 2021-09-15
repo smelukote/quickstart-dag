@@ -1,18 +1,13 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/dataflow-bq-321500/my-image', '.']
-  timeout: 500s
-
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/my-project/my-image']
-
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/my-deployment', 'my-container=gcr.io/dataflow-bq-321500/my-image']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=us-central1-data-pipeline-c-a111b6a7-gke'
-# options:
-#     machineType: 'N1_HIGHCPU_8'
-# timeout: 660s
-# tags: ['mytag1', 'mytag2']
-# images: ['gcr.io/dataflow-bq-321500/myimage']
+- name: 'docker.io/library/python:3.7'
+  id: Test
+  entrypoint: /bin/sh
+  args:
+  - -c
+  - 'pip install pytest && pip install -r requirements.txt && pytest test/*_test.py'
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  id: Deploy
+  entrypoint: bash
+  args: [ '-c', 'if [ "$BRANCH_NAME" == "master" ]; then echo "$BRANCH_NAME" && gsutil -m rsync -d -r ./dags gs://${_COMPOSER_BUCKET}/dags; else echo "Working on $BRANCH_NAME"; fi']
+substitutions:
+    _COMPOSER_BUCKET: us-central1-sc-flow-dev-com-e543240e-bucket

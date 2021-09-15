@@ -11,7 +11,7 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=us-central1-data-pipeline-c-a111b6a7-gke'
-  options:
+options:
     machineType: 'n1-standard-1'
 timeout: 660s
 tags: ['mytag1', 'mytag2']

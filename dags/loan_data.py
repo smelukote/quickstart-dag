@@ -1,5 +1,5 @@
-DESTINATION_BUCKET = 'sc-flow-dev-data'
-DESTINATION_DIRECTORY = "transferred"
+DESTINATION_BUCKET = 'us-central1-my-demo-408f667a-bucket'
+DESTINATION_DIRECTORY = "dags"
 
 dag_params = {
    'dag_id': 'PostgresToCloudStorageExample',

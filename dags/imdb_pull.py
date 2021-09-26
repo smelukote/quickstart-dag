@@ -124,8 +124,8 @@ pg_csv_filename = '/tmp/' + pg_base_filename + '.csv'
 mysql_json_filename = '/tmp/' +  mysql_base_filename + '.json'
 pg_json_filename = '/tmp/' + pg_base_filename + '.json'
 
-BUCKET = 'spacecadets-281921_data'
-PROJECT_ID = "spacecadets-281921"
+BUCKET = 'sc-flow-dev-data'
+PROJECT_ID = "my-lab1-326317"
 
 GCS_FILENAME = "airflow/imdb/{0}/{1}/.json"
 

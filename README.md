@@ -29,3 +29,15 @@ Two workarounds for the above limitation:
 
 For a single repository, add multiple triggers to Cloud Build. You could have one trigger for all branches, a separate trigger for development branch, and a third trigger for master branch. Each trigger references its own `.yaml` configuration file, and contains custom steps for that specific branch.
 Use a bash conditional determined by the branch name to determine whether to complete the step.
+
+simple.py:
+1. An Airflow DAG is defined in a Python file and is composed of the following components: A DAG definition, operators, and operator relationships. The following code snippets show examples of each component out of context:
+
+2. Operators to describe the work to be done. An instantiation of an operator is called a task.
+
+3. Operator relationships to describe the order in which the work should be completed.
+
+4. 
+
+Ref : https://1904labs.com/2020/08/14/how-to-test-and-deploy-airflow-dags-to-cloud-composer/
+Ref: https://www.kaggle.com/zhijinzhai/loandata - for sample loan_data table

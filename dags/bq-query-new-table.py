@@ -32,7 +32,7 @@ start = DummyOperator(task_id='start')
 end = DummyOperator(task_id='end')
 logging.error('trying to bq_query: ')
 logging.error('table name: '+table_name)
-sql = """ SELECT * FROM `omid.test1` """
+sql = """ SELECT * FROM `average_weather` """
 bq_query = BigQueryOperator(
 task_id='bq_query',
 bql=sql,
